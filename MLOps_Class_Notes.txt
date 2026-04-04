@@ -573,3 +573,646 @@ Next :::
 	GIT VCS 
 	
 	DVC 
+
+
+
+	
+######################
+Day-3 | 4th Mar. 2026
+######################
+
+	GIT Version Control System :::
+	
+	- GIT :
+	
+		- Is an Open-Source Distributed VCS		
+		- Is used to track the changes and version control the changes 		
+		- Is used to perform Parallel Development using Branches	
+
+
+Working with GIT :
+
+	- Local Machine 																Remote Server 
+	
+		Install Git 																	Remote Repository
+
+	
+
+Python Program :::
+	
+	Create apicall.py in the project workspace 
+	
+	Open apicall.py 
+	
+	----
+	-
+	-
+	-
+	-
+	
+	---
+	-
+	
+	save apicall.py 	==> file system 
+	
+	test apicall.py 
+	
+	open apicall.py 
+	
+	----
+	-
+	-
+	-
+	-sadf
+	asdf
+	asdfadfa
+	---asdfa
+	-	
+	asdfasdfa		
+	
+	save apicall.py 	==> file system 
+	
+	test apicall.py 
+	
+	
+	Using Version Control System like GIT :
+	
+	Create apicall.py in the project workspace 
+	
+	Open apicall.py 
+	
+	----
+	-
+	-
+	-
+	-
+	
+	---
+	-
+	
+	save apicall.py 	==> file system 		--> 	apicall.py_V1.0
+	
+	Open apicall.py 
+	
+	----
+	-
+	-adfasdf
+	-asdfad
+	-adfasdf
+	
+	---
+	-
+	
+	save apicall.py 	==> file system 		--> 	apicall.py_V1.1		v1.1 --> # Version_Number/Tag_Number/Commit_ID
+	save apicall.py 	==> file system 		--> 	apicall.py_V1.2
+	save apicall.py 	==> file system 		--> 	apicall.py_V1.3
+	save apicall.py 	==> file system 		--> 	apicall.py_V1.4
+	save apicall.py 	==> file system 		--> 	apicall.py_V1.5
+	
+	- GIT :
+	
+		- Is an Open-Source Distributed VCS		
+		- Is used to track the changes and version control the changes 		
+		- Is used to perform Parallel Development using Branches	
+		
+		
+Working with GIT :
+
+	- Local Machine 																			Remote Server 
+	
+		Install Git Client																			Remote Repository	
+			- To Create Local Git Repositories															- To Create Remote Repositories
+			
+		Using git cli commands:
+		
+	- Git file workflow :::
+		
+	- Local Machine :
+	
+		Working_Directory 	-----------> 	Staging_Area  	------------> 	Local Repository 	   ---------->		Remote Repository
+		
+			apicall.py		 git add 		apicall.py		 git commit		apicall.py_v1.1	   		git push		apicall.py_v1.1
+
+			apicall.py		 git add 		apicall.py		 git commit		apicall.py_v1.2	   		git push		apicall.py_v1.2		
+			
+			apicall.py		 git add 		apicall.py		 git commit		apicall.py_v1.3	   		git push		apicall.py_v1.3
+			
+	
+	
+	- Developers' workload :
+	
+		- Enhancement Project / Bugfixing Project 
+		
+		- Create New Project 
+		
+	
+	- GIT Cli Commands :
+	
+	
+	-	git clone 			# To Copy/clone the entire remote repository to Local Machine 
+	
+	- 	git add				# To add the changes from Working_Directory to Staging_Area
+	
+	- 	git commit 			# To Create a permanent commit from staging area to the Local Repository
+	
+	- 	git push 			# To Push the changes from Local Repository to Remote Repository
+	
+	- 	git fetch/pull 		
+				- Both are used to handle the incremental changes from Remote Repository
+				
+				
+			- git fetch ::
+			
+					# It will check for the incremental changes in the remote repository, if the incremental changes existing, git fetch will update only the Local Repository. It will never update the Working Directory.
+					# Developers need to do explicit merge / pull to bring the changes to Working Directory
+	
+		
+			- git pull ::
+			
+					# It will check for the incremental changes in the remote repository, if the incremental changes existing, git pull will update only the Local Repository as well the Working Directory.	
+
+					# git pull = git fetch + git merge 
+					
+	- Fork ?		# To Copy then entire remote repository to another remote repository
+	
+	
+	- git init 		# To Initial a Local Repository
+					# It create a GIT Directory 
+					# It create a default branch(master/main)
+					
+					
+	- GIT File Workflow
+
+	- Git Branching 
+	
+	- Git Branching Strategies 
+	
+	- Misc. Git cli command 
+	
+	- Git Remote repository Management
+					
+					
+	Working with git cli commands ::::
+	
+	
+	- Install git client 
+	
+	
+	- Create Local Repositories 
+		
+		git bash terminal 		Windows Users 
+		
+		terminal 				Mac/Linux Users 
+		
+		
+		Maintain proper Workspace Directory
+			
+			mkdir Edu_MLOps_0404_Projects
+		
+			cd Edu_MLOps_0404_Projects
+			
+			mkdir repo1 
+			
+			mkdir repo2 
+			
+			cd repo1 
+				
+				git init 
+				
+	
+		- git status			# To get the current branch status of the git repository 
+		
+		- git log 				# To get the list of commits from a specific repository
+		
+		- git ls-files 			# To get the list of files that are being tracked by git
+		
+
+	- Local Machine :
+	
+		Working_Directory 	-----------> 	Staging_Area  	------------> 	Local Repository 	
+		
+			file1.txt		 git add 		file1.txt 		 git commit		 	 file1.txt_<commit_id>  
+			
+			file2.txt		 git add 		file2.txt 		 git commit			 file2.txt_<commit_id>  
+			
+
+
+	- git config 
+
+
+
+Practice: 
+
+		Maintain proper Workspace Directory
+			
+			mkdir Edu_MLOps_0404_Projects
+		
+			cd Edu_MLOps_0404_Projects
+			
+			mkdir repo1 
+			
+				git init 
+
+				Setup the Git Configuration :::	Just for first time!	
+				
+					git config --global user.name "Loksai"
+					
+					git config --global user.email "Loksai@asdf.com"
+					
+					echo "rec1" >> file.txt 
+					
+					git add file1.txt 
+					
+					git commit -m "Created file1.txt"				
+				
+
+		
+	
+	- git add ::::
+	
+		git add <file_name>
+		
+		git add <file1> <file2>
+		
+		git add *.py 
+		
+		git add .					# '.' denotes all the changes from working
+		
+		
+	- Unstage: Undo the file changes from staging area.
+	
+		- git rm --cached a1.py		# Remove the changes from staging area, and the changes back to working directory
+		
+		- git rm -f					# Remove the changes from staging area, as well as from the working directory	
+		
+	
+	- git log :::
+	
+		- git log 
+		
+		- git log --oneline			# Default
+		
+		- git log --oneline -3 
+
+		- git log -3		
+		
+	
+	- git commit -m "<Valid Commit_Message>"	
+	
+	
+	- git ignore :::::
+	
+		- To Ignore the files from tracking 
+		
+	
+	Project_Workspace:
+		*.py
+		resources
+			*.html
+			*.css
+			*.js 
+		appplication.properties 
+		db_username
+		db_password 
+		secret 
+		app_config
+		Dataset
+		
+		
+		Create .gitignore file and update this file with all the files name that we wish to ignore 
+		Add this .gitignore file to staging area and commit this file
+		
+		As a best practise, .gitignore file should be very first commit in any repository.
+		
+		
+	- MLOPs Workflow :::
+	
+		Dataset -->  to train ML Model --> datasets to maintained in external storage server AWS s3
+		
+		
+	- Undo the Commited Changes from Local Repository ::::
+	
+		git reset ::::
+		
+	git reset :::
+	
+		git reset is used to undo the changes from the repository
+		git reset will reset the commit point to the previous commit point 
+		git reset will not create any new commit point for track purpose 
+		git reset is not recommended in the shared repository 
+	
+		Syntax :		
+			- git reset <reset_option> <previous_Commit_ID>	
+
+		Reset Options ::
+		
+			git reset --soft <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to staging area 
+				- The Changes will be available in staging area and working directory					
+		
+			git reset --mixed <previous_Commit_ID> :::										# Default
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to working directory 
+				- The Changes will be available only in working directory			
+			
+			git reset --hard  <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will permanently delete the files from the system 		
+			
+
+			Repo:
+			
+				c3	
+				
+				c2
+				
+				c1 
+				
+		Eg. :::
+
+			Dataset ::: Real time data stream
+						gets generated for every hr.
+						
+						
+			ETL Process :::
+			
+				
+				Extract the data from external resource --> Raw Data 
+				
+				Processed/Tansformed					--> Processed Data 
+				
+				Load to Database/Dataset 				--> Create Dataset ==> used to train the model --> s3 bucket 
+						
+				
+				Repo1:
+				
+					
+					cm2 --> extracted raw_data_v1.1
+					cm1 --> .gitIgnoreFile
+					
+					
+					git reset --hard cm1
+					
+						cm2 --> extracted raw_data_v1.2
+						cm1 --> .gitIgnoreFile
+			
+
+					git reset --hard cm1
+					
+
+						cm1 --> .gitIgnoreFile		
+
+  506  cd d:
+  507  c;ear
+  508  clear
+  509  mkdir Edu_MLOps_0404_Projects
+  510  cd Edu_MLOps_0404_Projects
+  511  clear
+  512  ls
+  513  mkdir testrepo1
+  514  ls
+  515  cd testrepo1/
+  516  pwd
+  517  git init
+  518  ls
+  519  ls -a
+  520  cd .git/
+  521  ls
+  522  cd ..
+  523  clear
+  524  cd ..
+  525  clear
+  526  ls
+  527  mkdir testrepo2
+  528  cd testrepo2/
+  529  git init
+  530  clear
+  531  ls -a
+  532  git status
+  533  clear
+  534  ls
+  535  echo "rec1" >> file1.txt
+  536  ls
+  537  cat file1.txt
+  538  git status
+  539  git add file1.txt
+  540  git status
+  541  git commit -m "Created file1.txt"
+  542  git status
+  543  git log
+  544  ls
+  545  echo "rec1" >> file2.txt
+  546  ls
+  547  git status
+  548  ls
+  549  git ls-files
+  550  git add file2.txt
+  551  git ls-files
+  552  ls
+  553  git ls-files
+  554  git status
+  555  git commit -m "Created file2.txt"
+  556  git status
+  557  git log
+  558  git ls-files
+  559  clear
+  560  git log
+  561  git config --global user.email "Loksai-ETA@dummy.com"
+  562  echo "rec1" >> f3.txt
+  563  git add f3.txt
+  564  git commit -m "Created f3.txt"
+  565  git log
+  566  clear
+  567  cd ..
+  568  ls
+  569  clear
+  570  ls
+  571  mkdir testrepo3
+  572  cd testrepo3/
+  573  clear
+  574  git init
+  575  ls -a
+  576  clear
+  577  ls
+  578  git status
+  579  echo "rec1" >> s1.txt
+  580  git status
+  581  git add s1.txt
+  582  git commit -m "Created s1.txT"
+  583  clear
+  584  ls
+  585  git log
+  586  clear
+  587  echo "rec1" >> q1.txt
+  588  echo "rec1" >> q2.txt
+  589  echo "rec1" >> q3.txt
+  590  echo "rec1" >> a1.java
+  591  echo "rec1" >> a2.java
+  592  echo "rec1" >> a3.java
+  593  echo "rec1" >> e1.py
+  594  echo "rec1" >> e2.py
+  595  echo "rec1" >> e3.py
+  596  echo "rec1" >> r1.doc
+  597  echo "rec1" >> r2.doc
+  598  clear
+  599  ls
+  600  git ls-files
+  601  git status
+  602  git add a1.java e1.py
+  603  git status
+  604  git add *.py r1.doc
+  605  git status
+  606  git add .
+  607  git status
+  608  git rm --cached e1.py
+  609  git status
+  610  ls
+  611  git ls-files
+  612  git rm -f a1.java
+  613  git ls-files
+  614  ls
+  615  git add .
+  616  clear
+  617  git commit -m "created some files"
+  618  clear
+  619  git log
+  620  echo "rec1" >> l1.md
+  621  git add .
+  622  git commit -m "Created l1.md"
+  623  echo "rec1" >> l2.md
+  624  git add .
+  625  git commit -m "Created l2.md"
+  626  echo "rec1" >> l3.md
+  627  git add .
+  628  git commit -m "Created l3.md"
+  629  echo "rec1" >> l4.md
+  630  git add .
+  631  git commit -m "Created l4.md"
+  632  clear
+  633  git log
+  634  git log --oneline
+  635  git log -2
+  636  git log -1
+  637  git log --oneline -3
+  638  clear
+  639  cd ..
+  640  clear
+  641  ls
+  642  mkdir testrepo4
+  643  cd testrepo4
+  644  clear
+  645  git init
+  646  ls -a
+  647  vi .gitignore
+  648  ls
+  649  ls -a
+  650  git status
+  651  git add .
+  652  git commit -m "Initial commit for .gitignore"
+  653  clear
+  654  ls
+  655  ls -a
+  656  cat .gitignore
+  657  echo "rec1" > s1.txt
+  658  git status
+  659  echo "rec1" >> sample1.txt
+  660  git status
+  661  echo "rec1" >> sample.txt
+  662  git status
+  663  ls
+  664  git add .
+  665  ls
+  666  git commit -m "created some files"
+  667  ls
+  668  git ls-files
+  669  git status
+  670  clear
+  671  clear
+  672  cd ..
+  673  ls
+  674  mkdir testrepo5
+  675  cd testrepo5
+  676  git init
+  677  clear
+  678  echo "*.dbsecrets" >> .gitignore
+  679  cat .gitignore
+  680  git status
+  681  git add .
+  682  git commit -m "Initial commit for .gitignore"
+  683  clear
+  684  ls
+  685  echo "rec1" >> f1.txt
+  686  git add .
+  687  git commit -m "cm1"
+  688  echo "rec1" >> f2.txt
+  689  git add .
+  690  git commit -m "cm2"
+  691  echo "rec1" >> f3.txt
+  692  git add .
+  693  git commit -m "cm3"
+  694  echo "rec1" >> f4.txt
+  695  git add .
+  696  git commit -m "cm4"
+  697  echo "rec1" >> f5.txt
+  698  git add .
+  699  git commit -m "cm5"
+  700  clear
+  701  git log --oneline
+  702  clear
+  703  ls
+  704  git ls-files
+  705  git log --oneline
+  706  git status
+  707  git reset --soft 2f85ccd
+  708  git status
+  709  git ls-files
+  710  ls
+  711  git log --oneline
+  712  git status
+  713  git commit -m "cm5.1"
+  714  clear
+  715  git status
+  716  ls
+  717  git ls-files
+  718  git log --oneline
+  719  git reset --mixed 2f85ccd
+  720  git status
+  721  git ls-files
+  722  ls
+  723  git log --oneline
+  724  git add .
+  725  git commit -m "cm5.2"
+  726  clear
+  727  ls
+  728  git ls-files
+  729  git status
+  730  git log --oneline
+  731  git reset --hard 2f85ccd
+  732  ls
+  733  git ls-files
+  734  git status
+  735  git log --oneline
+  736  git reset --hard 6b3ed5a
+  737  ls
+  738  git ls-files
+  739  git status
+  740  git log --oneline
+  741  git reset --hard 88b273d
+  742  ls
+  743  git log --oneline
+  744  git reset --hard f42267b
+  745  clear
+  746  ls
+  747  git log --oneline
+  748  clear
+  749  history
+
+
+Next :::		
+		git revert ::::
+		
+			--> Is also same as git reset --hard 
+			--> git revert creates the commit points to track the changes 
+			--> git revert is highly recommended to use in the shared repositories
+
