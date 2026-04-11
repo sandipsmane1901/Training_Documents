@@ -1587,3 +1587,281 @@ Next :::
 			- AWS EC2 
 			
 		- DVC 
+
+
+######################
+Day-5 | 11th Apr. 2026
+######################
+
+	- Packaging the ML Model 
+	
+		- Purpose of Packaging 
+			
+			- Docker 
+			
+			- Kubernetes 
+			
+			- MLflow 
+			
+			- Kubeflow 
+			
+			- Python & Libraries 
+		
+		
+	
+	- Tools to Create ML Model
+		- Streamlit & Fast-API
+		
+		
+			- Tools to create ML Model :::
+			
+				API --> Backend 
+				
+				WebServices --> UI 
+				
+				
+			- Python ::: 
+			
+				-> Web Application framework like - Flask / Django / ==> Web Application 
+				
+					-> Streamlit --> ML Application - To Create UI
+					
+					- Fast-API --> to Create API --> API Call 
+					
+	
+	-> Prepare ML Application using Streamlit & Fast-API  ==> ML Project Repo. : 
+				
+	
+	-> Package using Docker, mlflow, Kubernetes, kubeflow ---> CI-CD Enablement using Github-Actions	===> MLOps Activities
+	
+	
+Working with MLOps :::
+
+	-> Working Environment :
+		
+		- AWS Management Console :::
+		
+ 
+			
+				https://aws.amazon.com/console/
+
+		- Create AWS Free Tier Account :::
+			https://aws.amazon.com/console/
+			
+			https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html
+			
+				-> Active Email_ID, Mobile_Number, Credit/Debit Card(Enabled with International Transaction)
+				-> PAN Number
+				
+				-> 12 Months -> 6 Months Free Tier 
+
+
+		-> Login to AWS Console as a root user.
+	
+			- Billing Management 
+			
+			- AWS Region 
+	
+			- AWS Services 			
+
+				- IAM Service :	Identity & Access Management Services 
+				
+					- Authentication ::	Who can Access ?
+					
+					- Authorization ::	What can be done?
+					
+					- RBAC 	:: Role Based Access Control :
+					
+						user1 : Admin_Team  
+						
+						user2,10 : Dev_Team
+				
+					- Create IAM User 			--> Individual User 
+					
+					- Create IAM User Group		--> Admin_Group --> Add user1 
+					
+					- IAM Policy --> Define the Permissions 
+					
+						https://cscscdscw423423423.signin.aws.amazon.com/console	
+					
+						mlopsapruser1
+						
+						MFA ===> Mandatory for root user 
+					
+					- IAM Policies(permissions) --> Can be assigned to the Users/Groups 
+					
+					- IAM Roles 				--> Attached to EC2 Service 
+					
+													--> Attach the IAM while creating an EC2 Instance 
+					
+					
+				-> S3 Service :::::	Used to maintain datasets/metadata/artifacts
+				
+					->	Create :::  as an IAM User 
+					
+							mlopsarp-bkt1 
+							
+							Uncheck the Block public access
+							
+							https://mlopsarp-bkt1.s3.ap-south-1.amazonaws.com/index.html
+							
+					-> Edit Bucket Policy 
+					
+					{
+						"Version": "2012-10-17",
+						"Statement": [
+							{
+								"Sid": "Statement1",
+								"Effect": "Allow",								# Allow / Deny 
+								"Principal": "*",								# Identify the IAM Users(root/mlopsuser1)
+								"Action": "s3:*",								# Action: get/list/write/delete
+								"Resource": "arn:aws:s3:::mlopsarp-bkt1/*"		# Name of the S2 Bucket
+							}
+						]
+					}
+
+
+				
+				
+
+				-> EC2 Service ::::
+								
+					- Launch EC2 Instances ::::
+
+						- Linux Ubuntu EC2 Instance 
+						
+						
+						- Name Tag :::
+						
+						- AWS AMI ::	- Server template --> TO identify the OS 
+						
+						- Instance Type ::	-> RAM/CPU
+						
+						- Security Group ::
+						
+						- IAM Role 
+						
+						- User Data 
+						
+						
+			- Authentication Methods :
+
+				- Password based Authentication
+				
+				- Token based Authentication
+				
+				- Key based Authentication
+					
+						- private key 		==> Downloaded to Local Machine as a *.pem file 
+						- public key 
+						- authorized_keys 
+						
+				- passwordless Authentication
+				
+				
+					1 VM --> 750 Hrs/Month 
+					
+					10 VMs ==> 75 Hrs/Month
+					
+						- Stop the Instance if it is not in use.
+						
+						
+			- Connect to EC2 Instance ::::
+			
+				-> EC2 Instance Connect Option - using web browser.
+				
+				
+				
+				-> Terminal ::	Local Linux / Mac Users
+
+						Instance ID
+						i-07b0f0793f3a37b97 (MLOps_Build_Server)
+						
+						Open an SSH client.
+
+						Locate your private key file. The key used to launch this instance is AWS_MLOps_KeyPair.pem
+
+						Run this command, if necessary, to ensure your key is not publicly viewable.
+						chmod 400 "AWS_MLOps_KeyPair.pem"
+
+						Connect to your instance using its Public DNS:
+						ec2-13-206-122-103.ap-south-1.compute.amazonaws.com
+
+						Example:
+
+						ssh -i "AWS_MLOps_KeyPair.pem" ubuntu@ec2-13-206-122-103.ap-south-1.compute.amazonaws.com
+						
+						
+				
+				-> SSH Agents:		Windows Users 
+				
+					- MobaXterm/Putty
+					
+					
+						-> Install MobaXterm 
+			
+							- Install MobaXterm/Putty 	==> SSH Agent for Windows Users Connect to Remote Server
+									# https://mobaxterm.mobatek.net/download-home-edition.html
+										# Choose Installer Edition 
+											# Download zip file 
+												# right click Extract the zip file, within the extracted folder select and run the exec
+
+						
+							-> Host_Name 		: Public_IP Address 
+							
+							-> User_Name 		: ubuntu
+							
+							-> Private key 		: *.pem 
+			
+					
+	
+
+				--> Login to EC2 Instance :
+				
+					$ sudo -i 
+					
+					$ apt update -y
+					
+					
+					# Setup AWS Cli on the EC2 Instance 		# Used to access S2 Bucket 
+						
+
+						# To Setup AWS CLI ::::
+
+
+						sudo apt install -y unzip curl
+
+						Download AWS CLI v2
+						curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+						Unzip installer
+						unzip awscliv2.zip
+
+						Install AWS CLI
+						sudo ./aws/install
+
+						Verify Installation
+						aws --version
+
+					$ aws s3 ls 					# Get the list of s3 bucket - to quickly check for s3 access from EC2 Instance.
+
+
+						
+					# install git,python,docker	on VM Level 
+					
+						sudo apt install -y \
+							  python3.12 python3.12-venv python3-pip
+							  
+						sudo apt install docker.io -y
+							  
+Next :::
+					  
+	--> Create Python Virtual Environment to work with MLOps Tools 
+
+			--> Install DVC,Streamlit,Fast-API within the Virtual Environment 
+						
+	--> MLOps to Package ML Model using Docker 
+	
+	--> Deploy using Kubernetes 
+	
+	--> CICD using Github-Actions
